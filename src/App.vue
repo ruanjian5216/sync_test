@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import ScreenShare from './components/ScreenShare.vue'
 </script>
 
 <template>
- 
-  <HelloWorld msg="Vite + Vue" />
+  <div class="app">
+    <h1>桌面共享</h1>
+    <ScreenShare />
+  </div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style>
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
 }
 </style>
