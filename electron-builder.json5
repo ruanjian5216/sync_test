@@ -1,15 +1,16 @@
 // @see - https://www.electron.build/configuration/configuration
 {
   "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
-  "appId": "YourAppID",
+  "appId": "com.your.app",
   "asar": true,
   "productName": "YourAppName",
   "directories": {
     "output": "release/${version}"
   },
   "files": [
+    "dist-electron",
     "dist",
-    "dist-electron"
+    "public"
   ],
   "mac": {
     "target": [
@@ -26,13 +27,20 @@
         ]
       }
     ],
-    "artifactName": "${productName}-Windows-${version}-Setup.${ext}"
+    "artifactName": "${productName}-Windows-${version}-Setup.${ext}",
+    "requestedExecutionLevel": "requireAdministrator",
+    "signAndEditExecutable": true
   },
   "nsis": {
     "oneClick": false,
-    "perMachine": false,
+    "perMachine": true,
     "allowToChangeInstallationDirectory": true,
-    "deleteAppDataOnUninstall": false
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "runAfterFinish": true,
+    "installerIcon": "build/icon.ico",
+    "uninstallerIcon": "build/icon.ico",
+    "include": "scripts/register-startup.js"
   },
   "linux": {
     "target": [
