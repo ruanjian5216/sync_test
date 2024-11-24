@@ -90,3 +90,9 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+// 如果特定应用总是显示黑屏，可以尝试以管理员权限运行
+if (process.platform === 'win32') {
+  app.commandLine.appendSwitch('high-dpi-support', '1')
+  app.commandLine.appendSwitch('force-device-scale-factor', '1')
+}
